@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <style>
+        #todoList {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO App</h1>
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Enter title">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description">
+    </div>
+    <button onclick="addTodo()">Add TODO</button>
+
+    <div id="todoList"></div>
+
+    <script>
+        function addTodo() {
+            var title = document.getElementById('title').value;
+            var description = document.getElementById('description').value;
+
+            if (title && description) {
+                var todoList = document.getElementById('todoList');
+
+                // Create a new TODO item
+                var todoItem = document.createElement('div');
+                todoItem.innerHTML = '<strong>Title:</strong> ' + title + ', <strong>Description:</strong> ' + description;
+                
+                // Append the TODO item to the list
+                todoList.appendChild(todoItem);
+
+                // Clear input fields
+                document.getElementById('title').value = '';
+                document.getElementById('description').value = '';
+            } else {
+                alert('Please enter both title and description.');
+            }
+        }
+    </script>
+</body>
+</html>
